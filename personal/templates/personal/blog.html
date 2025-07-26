@@ -1,7 +1,14 @@
-<h1>Blog Posts</h1>
+{% extends 'base.html' %}
+{% block title %}Blog{% endblock %}
+{% block content %}
+<h1>My Blog</h1>
 {% for post in posts %}
-    <h2>{{ post.title }}</h2>
-    <p>{{ post.body }}</p>
-    <p><i>{{ post.signature }}</i></p>
-    <p>{{ post.date }}</p>
+<div class="card mb-3">
+    <div class="card-body">
+        <h5 class="card-title">{{ post.title }}</h5>
+        <p class="card-text">{{ post.body }}</p>
+        <p class="text-muted"><em>{{ post.signature }}</em></p>
+    </div>
+</div>
 {% endfor %}
+{% endblock %}

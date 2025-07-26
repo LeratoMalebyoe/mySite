@@ -1,23 +1,24 @@
-# Virtual environments
-venv/
-env/
-.venv/
-
-# Python bytecode
+# Ignore Python cache & compiled files
 __pycache__/
 *.pyc
 *.pyo
 *.pyd
 
-# Django stuff
-*.log
+# Ignore virtual environments
+venv/
+env/
+
+# Ignore Django database
 db.sqlite3
 
-# Sphinx docs build
-/docs/_build/
+# Ignore migrations (optional if you want to recreate them)
+**/migrations/**
 
-# IDEs and OS files
-.vscode/
-.idea/
-*.swp
-.DS_Store
+# Ignore other system files
+*.log
+*.pot
+*.pyc
+*.pyo
+*.idea
+*.vscode
+*.DS_Store
