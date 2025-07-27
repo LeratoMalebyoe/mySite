@@ -1,24 +1,25 @@
-# Ignore Python cache & compiled files
+# Python
 __pycache__/
-*.pyc
-*.pyo
-*.pyd
+*.py[cod]
+*.sqlite3
+*.log
 
-# Ignore virtual environments
+# Virtual environment
 venv/
 env/
 
-# Ignore Django database
-db.sqlite3
+# Django static files
+staticfiles/
+media/
 
-# Ignore migrations (optional if you want to recreate them)
-**/migrations/**
+# IDE / editor
+.vscode/
+.idea/
 
-# Ignore other system files
-*.log
-*.pot
-*.pyc
-*.pyo
-*.idea
-*.vscode
-*.DS_Store
+# OS files
+.DS_Store
+Thumbs.db
+
+# Node (if you used npm/yarn for frontend)
+node_modules/
+package-lock.json
