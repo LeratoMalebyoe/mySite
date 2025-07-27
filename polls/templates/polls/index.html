@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}Polls{% endblock %}
+
+{% block content %}
+<h1 class="mb-4">Latest Questions</h1>
+<ul class="list-group">
+    {% for question in latest_question_list %}
+    <li class="list-group-item">
+        <a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a>
+    </li>
+    {% empty %}
+    <li class="list-group-item">No polls available.</li>
+    {% endfor %}
+</ul>
+{% endblock %}
