@@ -1,50 +1,51 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
-    
-</head>
-<body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="/">LR Malebyoe</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/about/">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/projects/">Projects</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/contact/">Contact</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>    
-    <div class="container mt-5">
-        <div class="text-center">
-            <h1 class="display-4">Welcome to My Site</h1>
-            <p class="lead">GET TO KNOW ME </p>
-            <nav>
-            <a href="/about/" class="btn btn-danger">Learn More About Me</a>
-            <a href="/contact/" class="btn btn-danger">Contact Me</a>
-            <a href="/projects/" class="btn btn-danger">My Projects</a>
-        </nav>
+{% extends 'base.html' %}
+
+{% block title %}Home - MySite{% endblock %}
+
+{% block content %}
+<nav class="navbar navbar-expand-lg" style="background-color: #f8bbd0;">
+    <div class="container-fluid">
+        <a class="navbar-brand fw-bold" href="/" style="color:#880e4f;">LR Malebyoe</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link active" href="/" style="color:#880e4f;">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="/about/" style="color:#880e4f;">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="/projects/" style="color:#880e4f;">Projects</a></li>
+                <li class="nav-item"><a class="nav-link" href="/contact/" style="color:#880e4f;">Contact</a></li>
+            </ul>
         </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+</nav>
 
+<div class="container mt-5 text-center">
+    <h1 class="display-4 fw-bold" style="color: #e91e63;">Welcome to My Site</h1>
+    <p class="lead text-muted mb-4">Explore my work, get to know me, and check out the polls!</p>
+    <!-- Button to open popup -->
+    <button type="button" class="btn btn-lg" style="background-color:#e91e63; color:white;" data-bs-toggle="modal"
+            data-bs-target="#navigationModal">
+        Go to Polls
+    </button>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="navigationModal" tabindex="-1" aria-labelledby="navigationModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header" style="background-color: #f8bbd0;">
+                <h5 class="modal-title" id="navigationModalLabel" style="color:#880e4f;">Choose a Destination</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center">
+                <a href="{% url 'polls:index' %}" class="btn btn-lg mb-2" style="background-color:#e91e63; color:white;">Go to Polls</a>
+                <a href="/projects/" class="btn btn-lg mb-2" style="background-color:#f06292; color:white;">View Projects</a>
+                <a href="/about/" class="btn btn-lg mb-2" style="background-color:#ec407a; color:white;">Learn More About Me</a>
+                <a href="/contact/" class="btn btn-lg" style="background-color:#f48fb1; color:white;">Contact Me</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
